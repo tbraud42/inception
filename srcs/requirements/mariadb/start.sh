@@ -2,14 +2,7 @@
 
 set -e
 
-GREEN="\033[0;32m"
-NC="\033[0m"
-
-printf "${GREEN}"
-printf "====================================\n"
-printf "       MariaDB  initialization      \n"
-printf "====================================\n"
-printf "${NC}"
+echo "MariaDB  initialization"
 
 mkdir -p /run/mysqld
 chown -R mysql:mysql /run/mysqld
@@ -30,7 +23,7 @@ if [ ! -d /var/lib/mysql/mysql ] || [ ! -d "/var/lib/mysql/${MYSQL_DATABASE}" ];
     done
 
     if [ -z "$MYSQL_DATABASE" ] || [ -z "$MYSQL_USER" ] || [ -z "$MYSQL_PASSWORD" ] || [ -z "$MYSQL_ROOT_PASSWORD" ]; then
-        echo "missing error: missing variable "
+        echo "missing error: missing variable"
         mysqladmin -P 3307 -u root shutdown > /dev/null 2>&1
         exit 1
     fi

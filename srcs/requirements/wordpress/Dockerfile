@@ -3,6 +3,7 @@ FROM debian:bullseye
 RUN apt-get update -y && apt-get upgrade -y \
     && apt-get install -y \
     php php-fpm php-mysql curl -y \
+    mariadb-client -y \
     && rm -rf /var/lib/apt/lists/*
 
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
