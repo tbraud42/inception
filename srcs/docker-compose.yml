@@ -9,8 +9,8 @@ services:
     environment:
       DOMAIN_NAME: ${DOMAIN_NAME}
     volumes:
-      - ./wordpress_data:/var/www/html
-      - ./nginx_data/cert:/etc/nginx/certs/
+      - ./home/tbraud/data/wordpress_data:/var/www/html
+      - ./home/tbraud/data/nginx_data/cert:/etc/nginx/certs/
     ports:
       - "443:443"
     networks:
@@ -38,7 +38,7 @@ services:
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
-      - ./wordpress_data:/var/www/html
+      - ./home/tbraud/data/wordpress_data:/var/www/html
     ports:
       - "9000:9000"
     networks:
@@ -61,7 +61,7 @@ services:
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
-      - ./mariadb_data:/var/lib/mysql
+      - ./home/tbraud/data/mariadb_data:/var/lib/mysql
     ports:
       - "3306:3306"
     networks:
