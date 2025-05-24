@@ -2,7 +2,7 @@ PROJECT_NAME=inception
 
 DC=docker-compose -f srcs/docker-compose.yml --env-file srcs/.env
 
-LOCAL_VOLUMES = srcs/wordpress_data srcs/mariadb_data srcs/nginx_data
+LOCAL_VOLUMES = /home/tbraud/data/wordpress_data /home/tbraud/data/mariadb_data /home/tbraud/data/nginx_data
 
 all: build up
 
