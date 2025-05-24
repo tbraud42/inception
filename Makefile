@@ -15,21 +15,16 @@ up:
 down:
 	$(DC) down
 
-restart:
-	$(DC) down
-	$(DC) up -d
-
 logs:
 	$(DC) logs -f
-
-ps:
-	$(DC) ps
 
 clean:
 	$(DC) down -v --remove-orphans
 
 fclean: clean
 	@docker image prune -a -f
-	@rm -r $(LOCAL_VOLUMES)
+	@rm -r $(LOCAL_VOLUMES) 2>/dev/null || true
 
 re: fclean all
+
+.PHONY: all build up down logs clean fclean re
