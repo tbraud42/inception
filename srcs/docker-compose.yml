@@ -67,11 +67,6 @@ services:
     networks:
       - backend
 
-volumes:
-  wordpress_data:
-  mariadb_data:
-  nginx_data:
-
 networks:
   frontend:
       driver: bridge
